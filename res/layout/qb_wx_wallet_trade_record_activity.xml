@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/qb_gray2"
+    android:orientation="vertical" >
+
+    <com.ucfwallet.plugin.views.UcfTitleView
+        android:id="@+id/title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <!-- 转账记录为空 -->
+
+    <include
+        android:id="@+id/bottom"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="20dp"
+        layout="@layout/qb_footer" />
+
+    <LinearLayout
+        android:id="@+id/empty_record"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/title"
+        android:layout_marginTop="@dimen/qb_top_margin"
+        android:gravity="center_horizontal"
+        android:orientation="vertical" >
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:contentDescription="@null"
+            android:src="@drawable/qb_wallet_norecord" />
+
+        <TextView
+            android:id="@+id/norecord"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/qb_row_gap"
+            android:text="无记录"
+            android:textColor="@color/qb_dark_gray"
+            android:textSize="18sp" />
+    </LinearLayout>
+    <!-- 转账记录 -->
+
+    <com.ucfwallet.plugin.views.PullXListView
+        android:id="@+id/pullListView"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_above="@+id/bottom"
+        android:layout_below="@id/title"
+        android:cacheColorHint="#00000000"
+        android:descendantFocusability="blocksDescendants"
+        android:divider="@null"
+        android:fadingEdge="none"
+        android:listSelector="@android:color/transparent" >
+    </com.ucfwallet.plugin.views.PullXListView>
+
+</RelativeLayout>

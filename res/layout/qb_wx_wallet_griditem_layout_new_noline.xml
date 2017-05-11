@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/qb_wxwallet_item_white_bg"
+    android:clickable="false">
+    <RelativeLayout
+        android:id="@+id/center_lauout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="13dp"
+        android:gravity="center"
+        android:paddingTop="12dp"
+        android:paddingBottom="5dp"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/im_icon"
+            android:layout_width="@dimen/qb_image_size"
+            android:layout_height="@dimen/qb_image_size"
+            android:scaleType="fitXY"
+            android:layout_marginBottom="@dimen/qb_margin"
+            android:layout_centerHorizontal="true"
+            android:src="@drawable/qb_erroe_pic"/>
+
+        <TextView
+            android:id="@+id/tv_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="2dp"
+            android:layout_below="@id/im_icon"
+            android:singleLine="true"
+            android:gravity="center_horizontal"
+            android:text="--"
+            android:layout_centerHorizontal="true"
+            android:textColor="@color/qb_color_text1"
+            android:textSize="@dimen/qb_text_size_14"/>
+
+        <TextView
+            android:id="@+id/tv_expand"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="3dp"
+            android:singleLine="true"
+            android:gravity="center_horizontal"
+            android:layout_centerHorizontal="true"
+            android:text="--"
+            android:layout_below="@id/tv_name"
+            android:textColor="@color/qb_color_text2"
+            android:textSize="12sp"/>
+    </RelativeLayout>
+    <View
+        android:id="@+id/center_view"
+        android:layout_width="1dp" android:layout_height="1dp"
+        android:visibility="invisible"
+        android:layout_centerHorizontal="true"
+    />
+    <ImageView
+        android:id="@+id/sub_icon"
+        android:layout_width="43dp"
+        android:layout_height="19dp"
+        android:layout_toRightOf="@id/center_view"
+        android:layout_alignTop="@id/center_lauout"
+        android:background="@color/qb_bao_nocolor"
+        android:src="@drawable/qb_more"/>
+    <ImageView
+        android:id="@+id/more_icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/qb_bao_nocolor"
+        android:layout_centerInParent="true"
+        android:visibility="gone"
+        android:src="@drawable/qb_more"/>
+    </RelativeLayout>
+

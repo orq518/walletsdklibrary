@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/qb_white"
+    android:clickable="false"
+    android:orientation="vertical">
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="5dp"
+    android:layout_marginRight="5dp"
+    android:paddingBottom="10dp"
+    android:paddingTop="10dp"
+    android:background="@drawable/qb_shop_item_selector"
+    android:clickable="false"
+    android:orientation="vertical">
+    <TextView
+        android:id="@+id/tv_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="2dp"
+        android:gravity="center_horizontal"
+        android:lines="1"
+        android:paddingLeft="2dp"
+        android:paddingRight="2dp"
+        android:text="--"
+        android:ellipsize="end"
+        android:textColor="@color/qb_color_text1"
+        android:textSize="@dimen/qb_text_size_13"/>
+
+    <TextView
+        android:id="@+id/tv_expand"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="3dp"
+        android:gravity="center_horizontal"
+        android:lines="1"
+        android:text="--"
+        android:ellipsize="end"
+        android:textColor="@color/qb_color_text2"
+        android:textSize="12sp"/>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        >
+
+        <ImageView
+            android:id="@+id/im_icon"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="-5dp"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/sub_icon"
+            android:scaleType="fitXY"
+            android:src="@drawable/qb_jxfw_icon"/>
+        <ImageView
+            android:id="@+id/sub_icon"
+            android:layout_width="20dp"
+            android:layout_height="11dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="-5dp"
+            android:layout_alignRight="@id/im_icon"
+            android:src="@drawable/qb_hot"/>
+    </RelativeLayout>
+</LinearLayout>
+</LinearLayout>
+

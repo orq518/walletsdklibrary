@@ -1,0 +1,162 @@
+apply plugin: 'com.android.library'
+
+dependencies {
+    compile fileTree(include: '*.jar', dir: 'libs')
+    compile files('libs/banksdk.jar')
+//    compile 'com.android.support:recyclerview-v7:21.0.3'
+}
+
+android {
+    compileSdkVersion 14
+    buildToolsVersion '21.0.0'
+    lintOptions {
+        ignoreWarnings true
+        abortOnError false
+        checkAllWarnings false
+        checkReleaseBuilds false
+    }
+
+    packagingOptions
+            {
+                exclude 'META-INF/DEPENDENCIES'
+                exclude 'META-INF/NOTICE'
+                exclude 'META-INF/LICENSE'
+                exclude 'META-INF/LICENSE.txt'
+                exclude 'META-INF/NOTICE.txt'
+            }
+    sourceSets {
+        main {
+            manifest.srcFile 'AndroidManifest.xml'
+            java.srcDirs = ['src']
+            resources.srcDirs = ['src']
+            aidl.srcDirs = ['src']
+            renderscript.srcDirs = ['src']
+            res.srcDirs = ['res']
+            assets.srcDirs = ['assets']
+            jniLibs.srcDirs = ['libs']
+        }
+
+        // Move the tests to tests/java, tests/res, etc...
+        instrumentTest.setRoot('tests')
+
+        // Move the build types to build-types/<type>
+        // For instance, build-types/debug/java, build-types/debug/AndroidManifest.xml, ...
+        // This moves them out of them default location under src/<type>/... which would
+        // conflict with src/ being used by the main source set.
+        // Adding new build types or product flavors should be accompanied
+        // by a similar customization.
+        debug.setRoot('build-types/debug')
+        release.setRoot('build-types/release')
+    }
+}
+
+//========生成jar包  在build/libs 目录下
+task makeJar(type: Copy) {
+    delete 'build/libs/ucf_plugin_wallet.jar'
+    from('build/intermediates/bundles/release/')
+    into('build/libs/')
+    include('classes.jar')
+    rename ('classes.jar', 'ucf_plugin_wallet.jar')
+}
+
+makeJar.dependsOn(build)
+//========生成混淆文件
+task proguard(type: proguard.gradle.ProGuardTask, dependsOn: makeJar) {
+    delete 'proguard_sdk_jar/ucfwallet_sdk.jar'
+//  输入路径
+    injars "build/libs/ucf_plugin_wallet.jar"
+//  输出路径
+    outjars 'proguard_sdk_jar/ucfwallet_sdk.jar'
+//  添加配置信息
+    configuration 'ucfwallet_new.pro'
+}
+
+
+
+
+
+
+//===========下面是jcenter发布程序==============
+apply plugin: 'com.github.dcendents.android-maven'
+apply plugin: 'com.jfrog.bintray'
+
+version = "3.0"
+group = "com.walletsdk"
+def siteUrl = 'https://github.com/orq518/walletsdklibrary'    // 工程的主页
+def gitUrl = 'https://github.com/orq518/walletsdklibrary.git' // 工程的git地址
+install {
+    repositories.mavenInstaller {
+        // This generates POM.xml with proper parameters
+        pom {
+            project {
+                packaging 'aar'
+                name 'Less Code For Android'
+                url siteUrl
+                licenses {
+                    license {
+                        name 'The Apache Software License, Version 2.0'
+                        url 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+                    }
+                }
+                developers {
+                    developer {
+                        id 'orq518'
+                        name 'ouhaha'
+                        email 'orq518@126.com'
+                    }
+                }
+                scm {
+                    connection gitUrl
+                    developerConnection gitUrl
+                    url siteUrl
+                }
+            }
+        }
+    }
+}
+task sourcesJar(type: Jar) {
+    from android.sourceSets.main.java.srcDirs
+    classifier = 'sources'
+}
+
+task javadoc(type: Javadoc) {
+    source = android.sourceSets.main.java.srcDirs
+    classpath += project.files(android.getBootClasspath().join(File.pathSeparator))
+    options.encoding = "UTF-8"
+}
+
+task javadocJar(type: Jar, dependsOn: javadoc) {
+    classifier = 'javadoc'
+    from javadoc.destinationDir
+}
+
+artifacts {
+    archives javadocJar
+    archives sourcesJar
+}
+
+Properties properties = new Properties()
+properties.load(project.rootProject.file('gradle.properties').newDataInputStream())
+bintray {
+    user = properties.getProperty("bintray.user")
+    key = properties.getProperty("bintray.apikey")
+    configurations = ['archives']
+    pkg {
+        repo = "maven"
+        name = "walletsdklibrary"
+        websiteUrl = siteUrl
+        vcsUrl = gitUrl
+        licenses = ["Apache-2.0"]
+        publish = true
+    }
+}
+//依次执行这些命令
+//gradlew javadocJar
+//gradlew sourcesJar
+//gradlew install
+//gradlew bintrayUpload
+
+
+
+//备注-->别人引用：classpath 'group:name:version' 就是group + ：+module名字 + ：+version
+//classpath 'com.github.dcendents:android-maven-gradle-plugin:1.3'

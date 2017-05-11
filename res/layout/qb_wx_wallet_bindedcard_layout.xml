@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:gravity="center"
+     android:background="@drawable/qb_wxwallet_card_red_bg"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingBottom="20dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:paddingTop="20dp" >
+
+        <LinearLayout
+            android:id="@+id/card_add_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="left"
+            android:paddingLeft="20dp"
+            android:orientation="horizontal" >
+
+            <ImageView
+                android:id="@+id/im_add"
+                android:layout_width="55dp"
+                android:layout_height="55dp"
+                android:layout_marginRight="15dp"
+                android:src="@drawable/qb_wxwallet_sim" />
+
+            <TextView
+                android:id="@+id/tv_bankname"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="xxx银行"
+                android:singleLine="true"
+                android:layout_gravity="center_vertical"
+                android:textColor="@color/qb_white"
+                android:textSize="22sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tv_card_number"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/card_add_layout"
+            android:layout_alignParentLeft="true"
+           android:paddingLeft="20dp"
+            android:layout_marginTop="10dp"
+            android:text="****  ****  ****  8888"
+            android:textColor="@color/qb_white"
+            android:textSize="22sp"
+            android:textStyle="bold" />
+    </RelativeLayout>
+
+</LinearLayout>

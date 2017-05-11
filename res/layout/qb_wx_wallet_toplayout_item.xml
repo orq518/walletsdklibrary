@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/qb_bao_nocolor"
+    android:clickable="true">
+    <RelativeLayout
+        android:id="@+id/icon_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true">
+        <ImageView
+            android:id="@+id/funcation_icon"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:scaleType="fitXY"
+            android:layout_centerInParent="true"
+            android:src="@drawable/qb_error_top_pic"/>
+    </RelativeLayout>
+
+
+    <TextView
+        android:id="@+id/funcation_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/icon_layout"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="3dp"
+        android:singleLine="true"
+        android:text="优惠活动"
+        android:clickable="false"
+        android:textColor="@color/qb_white"
+        android:textSize="@dimen/qb_top_text_size"/>
+    <TextView
+        android:id="@+id/funcation_red_point"
+        android:layout_width="18dp"
+        android:layout_height="16dp"
+        android:layout_alignRight="@id/icon_layout"
+        android:background="@drawable/qb_btn_board_orange"
+        android:gravity="center"
+        android:text="1"
+        android:textColor="@color/qb_black"
+        android:textSize="10sp"/>
+</RelativeLayout>

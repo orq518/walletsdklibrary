@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <!-- 中间的背景色 -->
+    <solid android:color="@color/qb_white" />
+    <!--&lt;!&ndash; 设置四个角的角度 &ndash;&gt;-->
+    <corners
+        android:topRightRadius="@dimen/qb_btn_radis"
+        android:topLeftRadius="@dimen/qb_btn_radis"
+         />
+
+</shape>

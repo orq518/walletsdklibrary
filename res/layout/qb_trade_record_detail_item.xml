@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableRow xmlns:android="http://schemas.android.com/apk/res/android"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:paddingBottom="5dp"
+          android:paddingTop="5dp"
+          android:background="@color/qb_white">
+
+    <TextView
+        android:id="@+id/trade_detail_left"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.25"
+        android:textSize="@dimen/qb_text_size_14"
+        android:text="当前状态"
+        android:textColor="@color/qb_gray3"/>
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.75"
+        android:gravity="right">
+
+        <TextView
+            android:id="@+id/trade_detail_right"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:drawableLeft="@drawable/qb_warning_icon"
+            android:drawablePadding="3dp"
+            android:gravity="right"
+            android:text="--"
+            android:textSize="@dimen/qb_text_size_14"
+            android:textColor="@color/qb_dark_gray"/>
+    </LinearLayout>
+</TableRow>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/qb_bao_nocolor"
+                android:clickable="false"
+                android:visibility="visible">
+
+    <com.ucfwallet.plugin.views.CycleViewPager
+        android:id="@+id/viewpager"
+        android:layout_width="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_height="wrap_content">
+    </com.ucfwallet.plugin.views.CycleViewPager>
+    <ImageView
+        android:id="@+id/close_im"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@id/viewpager"
+        android:layout_marginBottom="8dp"
+        android:layout_above="@id/viewpager"
+        android:clickable="true"
+        android:scaleType="centerInside"
+        android:src="@drawable/qb_float_close"/>
+    <LinearLayout
+        android:id="@+id/viewpager_points_layout"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:background="@color/qb_bao_nocolor"
+        android:gravity="center"
+        android:layout_below="@id/viewpager"
+        android:orientation="horizontal">
+    </LinearLayout>
+
+</RelativeLayout>
